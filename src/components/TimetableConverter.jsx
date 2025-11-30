@@ -346,7 +346,7 @@ const TimetableConverter = () => {
           return `\"${prayer}\": { ${parts.join(", ")} }`;
         });
         const comma = idx < dateKeys.length - 1 ? "," : "";
-        out.push(`\"${dateKey}\": { ${prayerStrings.join(", ")} }${comma}`);
+        out.push(` \"${dateKey}\": { ${prayerStrings.join(", ")} }${comma}`);
       });
       out.push("}");
       setJsonOutput(out.join("\n"));
