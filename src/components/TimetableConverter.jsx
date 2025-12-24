@@ -336,7 +336,7 @@ const TimetableConverter = () => {
       const order = ["fajr", "sunrise", "dhuhr", "asr", "maghrib", "isha"];
       const dateKeys = Object.keys(result);
       const out = [];
-      out.push("{");
+      // out.push("{");
       dateKeys.forEach((dateKey, idx) => {
         const day = result[dateKey] || {};
         const prayerStrings = order.map((prayer) => {
@@ -348,7 +348,7 @@ const TimetableConverter = () => {
         const comma = idx < dateKeys.length - 1 ? "," : "";
         out.push(`  \"${dateKey}\": { ${prayerStrings.join(", ")} }${comma}`);
       });
-      out.push("}");
+      // out.push("}");
       setJsonOutput(out.join("\n"));
     } catch (error) {
       console.error("Error processing file:", error);
