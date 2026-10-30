@@ -32,20 +32,22 @@ A professional web application that converts Excel prayer timetables to JSON for
 
 ## Excel File Format
 
-Your Excel file should have the following column structure (starting from row 2, as row 1 is ignored):
+Use `src/assets/Template-grouped.xlsx` with the following column order. Header rows are detected and skipped automatically:
 
 | Column | Prayer | Time Type |
 |--------|--------|-----------|
 | A | Fajr | Start Time |
-| B | Fajr | Jamat Time |
-| C | Sunrise | Start Time |
-| D | Dhuhr | Start Time |
-| E | Dhuhr | Jamat Time |
-| F | Asr | Start Time |
-| G | Asr | Jamat Time |
-| H | Maghrib | Start Time |
-| I | Isha | Start Time |
+| B | Sunrise | Start Time |
+| C | Zohar | Start Time |
+| D | Asr | Start Time |
+| E | Isha | Start Time |
+| F | Fajr | Jamat Time |
+| G | Zohar | Jamat Time |
+| H | Asr | Jamat Time |
+| I | Maghrib | Start Time |
 | J | Isha | Jamat Time |
+
+The JSON output remains unchanged: Zohar uses the `dhuhr` key, and Maghrib includes only `start`.
 
 ## Time Format Support
 

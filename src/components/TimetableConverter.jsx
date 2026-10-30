@@ -270,7 +270,7 @@ const TimetableConverter = () => {
         currentDate.setDate(currentDate.getDate() + index);
         const dateKey = formatDateToYYYYMMDD(currentDate);
 
-        // Ensure we have at least 10 columns for all prayer times
+        // Begins: A-E; Jamaat: F-H; Maghrib Begins: I; Isha Jamaat: J.
         const paddedRow = [
           ...row,
           "",
@@ -288,40 +288,40 @@ const TimetableConverter = () => {
         result[dateKey] = {
           fajr: {
             start: convertTimeTo24Hour(paddedRow[0] || "", "fajr"),
-            jamat: convertTimeTo24Hour(paddedRow[1] || "", "fajr"),
+            jamat: convertTimeTo24Hour(paddedRow[5] || "", "fajr"),
           },
           sunrise: {
-            start: convertTimeTo24Hour(paddedRow[2] || "", "sunrise"),
+            start: convertTimeTo24Hour(paddedRow[1] || "", "sunrise"),
           },
           dhuhr: {
             start: enforceAfternoonForNonMorning(
-              convertTimeTo24Hour(paddedRow[3] || "", "dhuhr"),
+              convertTimeTo24Hour(paddedRow[2] || "", "dhuhr"),
               "dhuhr"
             ),
             jamat: enforceAfternoonForNonMorning(
-              convertTimeTo24Hour(paddedRow[4] || "", "dhuhr"),
+              convertTimeTo24Hour(paddedRow[6] || "", "dhuhr"),
               "dhuhr"
             ),
           },
           asr: {
             start: enforceAfternoonForNonMorning(
-              convertTimeTo24Hour(paddedRow[5] || "", "asr"),
+              convertTimeTo24Hour(paddedRow[3] || "", "asr"),
               "asr"
             ),
             jamat: enforceAfternoonForNonMorning(
-              convertTimeTo24Hour(paddedRow[6] || "", "asr"),
+              convertTimeTo24Hour(paddedRow[7] || "", "asr"),
               "asr"
             ),
           },
           maghrib: {
             start: enforceAfternoonForNonMorning(
-              convertTimeTo24Hour(paddedRow[7] || "", "maghrib"),
+              convertTimeTo24Hour(paddedRow[8] || "", "maghrib"),
               "maghrib"
             ),
           },
           isha: {
             start: enforceAfternoonForNonMorning(
-              convertTimeTo24Hour(paddedRow[8] || "", "isha"),
+              convertTimeTo24Hour(paddedRow[4] || "", "isha"),
               "isha"
             ),
             jamat: enforceAfternoonForNonMorning(
